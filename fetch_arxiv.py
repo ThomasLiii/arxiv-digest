@@ -23,7 +23,7 @@ def fetch_category(cat: str):
         "sortBy": "submittedDate",
         "sortOrder": "descending",
     })
-    url = f"http://export.arxiv.org/api/query?{q}"
+    url = f"https://arxiv.org/api/query?{q}"
     with urllib.request.urlopen(url, timeout=30) as r:
         return ET.fromstring(r.read())
 

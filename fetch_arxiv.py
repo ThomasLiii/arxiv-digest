@@ -23,8 +23,9 @@ def fetch_category(cat: str):
         "sortBy": "submittedDate",
         "sortOrder": "descending",
     })
-    url = f"https://arxiv.org/api/query?{q}"
-    with urllib.request.urlopen(url, timeout=30) as r:
+    url = f"https://export.arxiv.org/api/query?{q}"
+    req = urllib.request.Request(url, headers={"User-Agent": "arxiv-digest/1.0"})
+    with urllib.request.urlopen(req, timeout=30) as r:
         return ET.fromstring(r.read())
 
 def parse_entry(e):

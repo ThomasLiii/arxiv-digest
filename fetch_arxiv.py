@@ -4,8 +4,10 @@ Usage: python fetch_arxiv.py > today.json
 """
 import json
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urlencode
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 
@@ -24,9 +26,18 @@ def fetch_category(cat: str):
         "sortOrder": "descending",
     })
     url = f"https://export.arxiv.org/api/query?{q}"
-    req = urllib.request.Request(url, headers={"User-Agent": "arxiv-digest/1.0"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return ET.fromstring(r.read())
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 arxiv-digest"})
+    delay = 5
+    for attempt in range(6):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return ET.fromstring(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 503) and attempt < 5:
+                time.sleep(delay)
+                delay = min(delay * 2, 120)
+                continue
+            raise
 
 def parse_entry(e):
     get = lambda tag, ns="atom": (e.find(f"{ns}:{tag}", NS).text or "").strip()
@@ -49,7 +60,9 @@ def parse_entry(e):
 def main():
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     seen, papers = set(), []
-    for cat in CATEGORIES:
+    for i, cat in enumerate(CATEGORIES):
+        if i > 0:
+            time.sleep(3)
         root = fetch_category(cat)
         for entry in root.findall("atom:entry", NS):
             paper = parse_entry(entry)

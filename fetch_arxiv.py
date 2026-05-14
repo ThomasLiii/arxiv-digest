@@ -21,19 +21,29 @@ ATOM_NS = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/sch
 RSS_NS = {"dc": "http://purl.org/dc/elements/1.1/", "arxiv": "http://arxiv.org/schemas/atom"}
 
 
-def _http_get(url: str) -> bytes:
+def _http_get(url: str, attempts: int = 6) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     delay = 5
-    for attempt in range(6):
+    last_err = None
+    for attempt in range(attempts):
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 return r.read()
         except urllib.error.HTTPError as e:
-            if e.code in (429, 503) and attempt < 5:
+            last_err = e
+            if e.code in (429, 503) and attempt < attempts - 1:
                 time.sleep(delay)
-                delay = min(delay * 2, 120)
+                delay = min(delay * 2, 60)
                 continue
             raise
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last_err = e
+            if attempt < attempts - 1:
+                time.sleep(delay)
+                delay = min(delay * 2, 60)
+                continue
+            raise
+    raise last_err
 
 
 def fetch_atom_category(cat: str):
@@ -44,7 +54,7 @@ def fetch_atom_category(cat: str):
         "sortBy": "submittedDate",
         "sortOrder": "descending",
     })
-    return ET.fromstring(_http_get(f"https://export.arxiv.org/api/query?{q}"))
+    return ET.fromstring(_http_get(f"https://export.arxiv.org/api/query?{q}", attempts=2))
 
 
 def parse_atom_entry(e):
@@ -139,7 +149,7 @@ def fetch_via_rss():
 def main():
     try:
         papers = fetch_via_atom()
-    except urllib.error.HTTPError:
+    except Exception:
         papers = fetch_via_rss()
     json.dump({"fetched_at": datetime.now(timezone.utc).isoformat(),
                "count": len(papers), "papers": papers},

@@ -1,4 +1,5 @@
 today.json
 fetch.err
+fetch_err.log
 _partial.json
 _resilient_fetch.py

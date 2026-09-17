@@ -3,3 +3,4 @@ fetch.err
 fetch_err.log
 _partial.json
 _resilient_fetch.py
+__pycache__/

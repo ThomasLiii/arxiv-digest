@@ -3,11 +3,11 @@
 Usage: python fetch_arxiv.py > today.json
 """
 import json
+import subprocess
 import sys
 import time
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urlencode
-import urllib.request
 import xml.etree.ElementTree as ET
 
 CATEGORIES = ["astro-ph.CO", "astro-ph.IM", "astro-ph.GA", "cs.LG"]
@@ -25,19 +25,34 @@ def fetch_category(cat: str):
         "sortOrder": "descending",
     })
     url = f"https://export.arxiv.org/api/query?{q}"
-    req = urllib.request.Request(url, headers={"User-Agent": "arxiv-digest/1.0"})
+    # Use curl: arxiv's Fastly frontend returns 406 for HTTP/1.1 clients via
+    # this environment's proxy, but works over HTTP/2 which curl negotiates.
     delay = 30
     for attempt in range(5):
-        try:
-            with urllib.request.urlopen(req, timeout=90) as r:
-                return ET.fromstring(r.read())
-        except urllib.error.HTTPError as e:
-            if e.code in (429, 503) and attempt < 4:
-                print(f"[{cat}] HTTP {e.code}, retrying in {delay}s", file=sys.stderr)
-                time.sleep(delay)
-                delay = min(delay * 2, 240)
-                continue
-            raise
+        proc = subprocess.run(
+            ["curl", "-sS", "-A", "arxiv-digest/1.0",
+             "-w", "\n---HTTP-STATUS:%{http_code}---\n", url],
+            capture_output=True, text=True, timeout=180,
+        )
+        body = proc.stdout
+        marker = "\n---HTTP-STATUS:"
+        idx = body.rfind(marker)
+        status = 0
+        if idx >= 0:
+            try:
+                status = int(body[idx + len(marker):].split("-", 1)[0])
+            except ValueError:
+                pass
+            body = body[:idx]
+        if proc.returncode != 0 or status >= 400:
+            if status in (406, 429, 503) or proc.returncode != 0:
+                if attempt < 4:
+                    print(f"[{cat}] curl rc={proc.returncode} status={status}, retrying in {delay}s", file=sys.stderr)
+                    time.sleep(delay)
+                    delay = min(delay * 2, 240)
+                    continue
+            raise RuntimeError(f"curl failed rc={proc.returncode} status={status} stderr={proc.stderr[:400]}")
+        return ET.fromstring(body)
 
 def parse_entry(e):
     get = lambda tag, ns="atom": (e.find(f"{ns}:{tag}", NS).text or "").strip()

@@ -23,3 +23,4 @@ The code is in `arxiv_digest/`:
 - Digests go directly to main by design; don't switch to PRs.
 - When adding a setting, update `config.KEYS`, `digest.toml`, and the settings table in `README.md`.
 - If you're asked to build today's digest in this repo, follow `ROUTINE.md`.
+- New users set up their copy with the `/setup-digest` skill (`.claude/skills/setup-digest/SKILL.md`). Keep its steps in sync with the README's setup sections.

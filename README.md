@@ -8,11 +8,27 @@ Read only the arXiv papers that matter to you. Every weekday, a [Claude Code sch
 
 It runs on your Claude plan (Pro, Max, Team or Enterprise). There's no API key and no extra bill.
 
-## Setup (about 10 minutes)
+## Quick setup (about 5 minutes)
+
+1. **Make your own copy and open it in Claude Code:**
+
+   ```bash
+   gh repo create my-arxiv-digest --template ThomasLiii/arxiv-digest --private --clone
+   cd my-arxiv-digest && claude
+   ```
+
+   Without the GitHub CLI, click **Use this template → Create a new repository** at the top of this page, then clone your new repository and open it in Claude Code.
+2. **Run `/setup-digest`.** You can paste links to a few arXiv papers you've written or love, for example `/setup-digest https://arxiv.org/abs/2404.04321`. Claude will:
+   - interview you and draft `interests.md`, then pick and check your categories;
+   - clear out the template's old digests and push your copy;
+   - create the scheduled task.
+3. **Allow arXiv in the task's network settings.** This is the one step that has to be done on the web. `/setup-digest` walks you through it; the steps are the same as [step 3.4 below](#3-create-the-scheduled-task).
+
+## Manual setup (about 10 minutes)
 
 ### 1. Make your own copy
 
-At the top of this page, click **Use this template → Create a new repository**. The new repository can be public or private. If your copy came with someone else's old digests, delete them from `digests/`.
+At the top of this page, click **Use this template → Create a new repository**. The new repository can be public or private. Your copy comes with the template author's old digests, so delete them from `digests/`.
 
 ### 2. Describe your interests and categories
 

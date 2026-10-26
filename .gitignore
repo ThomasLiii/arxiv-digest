@@ -1,6 +1,7 @@
-today.json
-fetch.err
-fetch_err.log
-_partial.json
-_resilient_fetch.py
+.DS_Store
 __pycache__/
+*.egg-info/
+build/
+.venv/
+.pytest_cache/
+.digest/

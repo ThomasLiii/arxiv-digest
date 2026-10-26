@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>astro-ph.CO updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/astro-ph.CO</link>
+    <description>astro-ph.CO updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/astro-ph.CO" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Apr 2024 04:00:02 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 09 Apr 2024 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Substructures within Substructures in the Complex Post-Merging System A514 Unveiled by High-Resolution Magellan/Megacam Weak Lensing</title>
+      <link>https://arxiv.org/abs/2404.04321</link>
+      <description>arXiv:2404.04321v1 Announce Type: new 
+Abstract: Abell 514 (A514) at $z=0.071$ is an intriguing merging system exhibiting highly elongated (~1 Mpc) X-ray features and three large-scale (300~500 kpc) bent radio jets. To dissect this system with its multi-wavelength data, it is critical to robustly identify and quantify its dark matter (DM) substructures. We present a weak-lensing analysis of A514 using deep Magellan/Megacam observations. Combining two optical band filter imaging data obtained under optimal seeing (~0.''6) and leveraging the proximity of A514, we achieve a high source density of ~$46\mbox{arcmin}^{-2}$ or ~$\mathrm{6940Mpc^{-2}}$, which enables high-resolution mass reconstruction. We unveil the complex DM substructures of A514, which are characterized by the NW and SE subclusters separated by ~$0.7$Mpc, each exhibiting a bimodal mass distribution. The total mass of the NW subcluster is estimated to be $\mathrm{M^{NW}_{200c} = 1.08_{-0.22}^{+0.24} \times 10^{14} M_{\odot}}$ and is further resolved into the eastern ($\mathrm{M^{NW_E}_{200c} = 2.6_{-1.1}^{+1.4} \times 10^{13} M_{\odot}})$ and western ($\mathrm{M^{NW_W}_{200c} = 7.1_{-2.0}^{+2.3} \times 10^{13} M_{\odot}}$) components. The mass of the SE subcluster is $\mathrm{M^{SE}_{200c} = 1.55_{-0.26}^{+0.28} \times 10^{14} M_{\odot}}$, which is also further resolved into the northern ($\mathrm{M^{SE_N}_{200c} = 2.9_{-1.3}^{+1.8} \times 10^{13} M_{\odot}}$) and southern ($\mathrm{M^{SE_S}_{200c} = 8.5_{-2.6}^{+3.0} \times 10^{13} M_{\odot}}$) components. These four substructures coincide with the A514 brightest galaxies and are detected with significances ranging from 3.4$\sigma$ to 4.8$\sigma$. Comparison of the dark matter substructures with the X-ray distribution suggests that A514 might have experienced an off-axis collision, and the NW and SE subclusters are currently near their apocenters.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2404.04321v1</guid>
+      <category>astro-ph.CO</category>
+      <category>astro-ph.GA</category>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Eunmo Ahn, M. James Jee, Wonki Lee, Hyungjin Joo, John ZuHone</dc:creator>
+    </item>
+    <item>
+      <title>Confusion of extragalactic sources in the far infrared: a baseline assessment of the performance of PRIMAger in intensity and polarization</title>
+      <link>https://arxiv.org/abs/2404.04320</link>
+      <description>arXiv:2404.04320v1 Announce Type: cross 
+Abstract: Because of their limited angular resolution, far-infrared telescopes are usually affected by confusion phenomenon. Since several galaxies can be located in the same instrumental beam, only the brightest objects emerge from the fluctuations caused by fainter sources. The probe far-infrared mission for astrophysics imager (PRIMAger) will observe the mid- and far-infrared (25-235 $\mu$m) sky both in intensity and polarization. We aim to provide predictions of the confusion level and its consequences for future surveys. We produced simulated PRIMAger maps affected only by the confusion noise using the simulated infrared extragalactic sky (SIDES) semi-empirical simulation. We then estimated the confusion limit in these maps and extracted the sources using a basic blind extractor. By comparing the input galaxy catalog and the extracted source catalog, we derived various performance metrics as completeness, purity, and the accuracy of various measurements. In intensity, we predict that the confusion limit increases rapidly with increasing wavelength. The confusion limit in polarization is more than 100x lower. The measured flux density is dominated by the brightest galaxy in the beam, but other objects also contribute at longer wavelength (~30% at 235 $\mu$m). We also show that galaxy clustering has a mild impact on confusion in intensity (up to 25%), while it is negligible in polarization. In intensity, a basic blind extraction will be sufficient to detect galaxies at the knee of the luminosity function up to z~3 and 10$^{11}$ M$_\odot$ main-sequence galaxies up to z~5. In polarization for the baseline sensitivity, we expect ~8 000 detections up to z=2.5 opening a totally new window on the high-z dust polarization. Finally, we show that intensity surveys at short wavelength and polarization surveys at long wavelength tend to reach confusion at similar depth. There is thus a strong synergy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2404.04320v1</guid>
+      <category>astro-ph.GA</category>
+      <category>astro-ph.CO</category>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Matthieu B\'ethermin, Alberto D. Bolatto, Fran\c{c}ois Boulanger, Charles M. Bradford, Denis Burgarella, Laure Ciesla, James Donnellan, Brandon S. Hensley, Jason Glenn, Guilaine Lagache, Enrique Lopez-Rodriguez, Seb Oliver, Alexandra Pope, Marc Sauvage</dc:creator>
+    </item>
+    <item>
+      <title>Verifying the Australian MWA EoR pipeline I: 21-cm sky model and correlated measurement density</title>
+      <link>https://arxiv.org/abs/2404.05140</link>
+      <description>arXiv:2404.05140v1 Announce Type: cross 
+Abstract: We present the first of two papers dedicated to verifying the Australian Epoch of Reionisation pipeline (AusEoRPipe) through simulation. The AusEoRPipe aims to disentangle 21-cm radiation emitted by gas surrounding the very first stars from contaminating foreground astrophysical sources, and has been in development for close to a decade. In this paper, we build an accurate 21-cm sky model that can be used by the WODEN simulation software to create visibilities containing a predictable 21-cm signal. We verify that the power spectrum estimator CHIPS can recover this signal in the absence of foregrounds. We also investigate how measurements in Fourier-space are correlated, and how their gridded density affects the power spectrum. We measure and fit for this effect using Gaussian-noise simulations of the MWA phase I layout. We find a gridding density correction factor of 2.651 appropriate for integrations equal to or greater than 30 minutes of data, which contain observations with multiple primary beam pointings and LSTs. Paper II of this series will use the results of this paper to test the AusEoRPipe in the presence of foregrounds and instrumental effects.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2404.05140v1</guid>
+      <category>astro-ph.IM</category>
+      <category>astro-ph.CO</category>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>J. L. B. Line, C. M. Trott, J. H. Cook, B. Greig, N. Barry, C. H. Jordan</dc:creator>
+    </item>
+    <item>
+      <title>Robust bounds on ALP dark matter from dwarf spheroidal galaxies in the optical MUSE-Faint survey</title>
+      <link>https://arxiv.org/abs/2307.07403</link>
+      <description>arXiv:2307.07403v2 Announce Type: replace 
+Abstract: Nearby dwarf spheroidal galaxies are ideal targets in the search for indirect dark matter (DM) signals. In this work, we analyze MUSE spectroscopic observations of a sample of five galaxies, composed of both classical and ultra-faint dwarf spheroidals. The goal is to search for radiative decays of axion-like particles (ALPs) in the mass range of 2.7-5.3 eV. After taking into account the uncertainties associated with the DM spatial distribution in the galaxies, we derive robust bounds on the effective ALP-two-photon coupling. They lie well below the QCD axion band and are significantly more constraining than limits from other probes, in the relevant mass range. We also test the possible presence of a positive signal, concluding that none of the channels selected for this analysis, i.e., not affected by large background contamination, is exhibiting such evidence.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2307.07403v2</guid>
+      <category>astro-ph.CO</category>
+      <category>hep-ph</category>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
+      <dc:creator>Elisa Todarello, Marco Regis, Javier Reynoso-Cordova, Marco Taoso, Daniel Vaz, Jarle Brinchmann, Matthias Steinmetz, Sebastiaan L. Zoutendijk</dc:creator>
+    </item>
+  </channel>
+</rss>

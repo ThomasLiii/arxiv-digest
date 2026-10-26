@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arxiv-digest"
+version = "1.0.0"
+description = "A daily arXiv digest, ranked against your research interests by a Claude Code scheduled task."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+arxiv-digest = "arxiv_digest.cli:main"
+
+[tool.setuptools]
+packages = ["arxiv_digest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

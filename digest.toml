@@ -1,0 +1,20 @@
+# arxiv-digest settings. Your research interests live in interests.md.
+
+# arXiv listings to read each day. Full list: https://arxiv.org/category_taxonomy
+categories = ["astro-ph.CO", "astro-ph.IM", "astro-ph.GA", "cs.LG"]
+
+# Include papers from other fields that authors cross-listed into your categories.
+include_cross_lists = true
+# Include revised versions (v2, v3, ...) of older papers. Usually noise.
+include_replacements = false
+
+interests_file = "interests.md"
+
+# Papers per file that Claude reads and scores in one go.
+batch_size = 40
+
+[output]
+# Where daily digests are written, relative to this file.
+directory = "digests"
+# Add a collapsed list of every skipped paper to the bottom of each digest.
+list_skipped = true
